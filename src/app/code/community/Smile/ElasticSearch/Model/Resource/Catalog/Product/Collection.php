@@ -137,6 +137,10 @@ class Smile_ElasticSearch_Model_Resource_Catalog_Product_Collection extends Mage
      */
     public function getSize()
     {
+        $helper = Mage::helper('smile_elasticsearch');
+        if (!$helper->isActiveEngine()) {
+            return parent::getSize();
+        }
         if (is_null($this->_totalRecords)) {
             $query = clone $this->getSearchEngineQuery();
 
@@ -218,6 +222,10 @@ class Smile_ElasticSearch_Model_Resource_Catalog_Product_Collection extends Mage
      */
     protected function _beforeLoad()
     {
+        $helper = Mage::helper('smile_elasticsearch');
+        if (!$helper->isActiveEngine()) {
+            return parent::_beforeLoad();
+        }
         $this->_prepareQuery();
 
         $ids = array();

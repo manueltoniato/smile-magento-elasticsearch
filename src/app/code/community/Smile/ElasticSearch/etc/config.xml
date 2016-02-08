@@ -270,6 +270,7 @@
         <catalog>
             <search>
                 <elasticsearch_enable_debug_mode>0</elasticsearch_enable_debug_mode>
+                <elasticsearch_replace_layered_categories>1</elasticsearch_replace_layered_categories>
                 <elasticsearch_servers>127.0.0.1:9200</elasticsearch_servers>
                 <elasticsearch_timeout>30</elasticsearch_timeout>
                 <elasticsearch_alias>magento</elasticsearch_alias>

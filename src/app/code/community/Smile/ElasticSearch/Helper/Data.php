@@ -126,6 +126,12 @@ class Smile_ElasticSearch_Helper_Data extends Mage_Core_Helper_Abstract
     public function isActiveEngine()
     {
         $engine = $this->getSearchConfigData('engine');
+        if($this->getSearchConfigData('elasticsearch_replace_layered_categories')==0){
+            $current_category = Mage::registry('current_category');
+            if($current_category) {
+                return false;
+            }
+        }
         if ($engine && Mage::getConfig()->getResourceModelClassName($engine)) {
             $model = Mage::getResourceSingleton($engine);
             return $model
